@@ -1,21 +1,59 @@
 # php-docker-env
 Setup nginx, mysql, memcached &amp; php env by docker
 
-- [Installation](#installation)
-- [Usage](#usage)
+- [How to use](#how-to-use)
 - [License](#license)
 
 
-Installation
-------------
-
+How to use
+----------
+1. Download this repo into your local machine
 ``` bash
 $ git clone git@github.com:moitran/php-docker-env.git
 ```
+2. Run script to build & start all container
+```
+$ ./bin/run.sh
+```
+3. In this repo have two example projects (you can remove it and replace by your repositories):
+  - *./www/site1/* this one will use *./etc/nginx/site1.conf*
+  - *./www/site2/* this one will use *./etc/nginx/site2.conf*
 
-Usage
------
+  Now, Open your browser and go to: 
 
+  - localhost:8080 you will see:
+  
+      ```
+      Connected successfully
+      Site1
+      ```
+
+  - localhost:8081 you will see:
+  
+      ```
+      Connected successfully
+      Site2
+      ```
+
+Well Done!!!!
+
+4. Source code structure
+
+```
+├── bin
+│   ├── run.sh      Run all docker containers
+│   └── down.sh     Stop all docker containers
+├── etc
+│   ├── dbScripts   You can put all sql dump script into this folder. It will be automatic to run when start mysql container.
+│   ├── nginx       Nginx conf files
+│   └── php         php.ini config files
+├── logs            All error.log & access.log of nginx will sync into this folder
+├── mysql           Mysql container
+├── nginx           NGINX container
+├── php             PHP container
+├── www             Put all php projects into this folder
+└── docker-composer.yml
+```
 
 License
 -------
