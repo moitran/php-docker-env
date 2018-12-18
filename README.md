@@ -1,2 +1,2 @@
 # php-docker-env
-Setup nginx, mysql &amp; php env by docker
+Setup nginx, mysql, memcached &amp; php env by docker

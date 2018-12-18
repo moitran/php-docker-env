@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+        context: nginx
+    image: nginx
+    ports:
+      - "8080:8080" # site1
+      - "8081:8081" # site2
+    volumes:
+      - "./etc/nginx_conf:/etc/nginx/conf.d"
+      - "./www:/www"
+      - "./logs/www:/var/log/nginx"
+    links:
+      - mysql
+      - php
+      - memcached
+
+  php:
+    container_name: php
+    build:
+        context: php
+    volumes:
+      - "./www:/www"
+      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+    links:
+      - memcached
+
+  mysql:
+    container_name: mysql
+    build:
+        context: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=root
+    command: mysqld --sql-mode=""
+    ports:
+     - "3306:3306"
+    volumes:
+     - ./etc/dbScripts:/docker-entrypoint-initdb.d/
+
+  memcached:
+    container_name: memcached
+    image: memcached
