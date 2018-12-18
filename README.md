@@ -1,9 +1,15 @@
 # php-docker-env
 Setup nginx, mysql, memcached &amp; php env by docker
 
+- [Containers version]($container-version)
 - [How to use](#how-to-use)
 - [License](#license)
 
+Containers version
+------------------
+1. php 7.1
+2. nginx latest version
+3. mysql 5.7.23
 
 How to use
 ----------
@@ -11,7 +17,7 @@ How to use
 ``` bash
 $ git clone git@github.com:moitran/php-docker-env.git
 ```
-2. Run script to build & start all container by this command (*If you already installed mysql in your local machine & it is using port 3306, please stop it before run this command*)
+2. Run script to build & start all containers by this command (*If you already installed mysql in your local machine & it is using port 3306, please stop it before run this command*)
 ```
 $ ./bin/run.sh
 ```
