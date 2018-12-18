@@ -11,11 +11,11 @@ How to use
 ``` bash
 $ git clone git@github.com:moitran/php-docker-env.git
 ```
-2. Run script to build & start all container
+2. Run script to build & start all container by this command (*If you already installed mysql in your local machine & it is using port 3306, please stop it before run this command*)
 ```
 $ ./bin/run.sh
 ```
-3. In this repo have two example projects (you can remove it and replace by your repositories):
+3. In this repo has two example projects (you can remove it and replace by your repositories):
   - *./www/site1/* this one will use *./etc/nginx/site1.conf*
   - *./www/site2/* this one will use *./etc/nginx/site2.conf*
 
